@@ -29,7 +29,7 @@ get '/mock_data/reactors/:id/data' do |id|
 	JSON.generate(
 		{
 			id: id,
-			name: "Reactor #{Faker::Number.between(from: 1, to: 12)}",
+			name: "Reator #{Faker::Number.between(from: 1, to: 12)}",
 			code: Faker::Number.unique.number(digits: 5),
 		}
 	)
