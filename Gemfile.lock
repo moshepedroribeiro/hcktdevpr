@@ -530,7 +530,6 @@ DEPENDENCIES
   rubocop-rspec_rails
   sassc-rails
   selenium-webdriver
-  sinatra
   sinatra-contrib
   sprockets-rails
   stimulus-rails

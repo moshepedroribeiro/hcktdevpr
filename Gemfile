@@ -38,7 +38,6 @@ gem 'telegram-bot-ruby', '~> 2.1'
 # gem "image_processing", "~> 1.2"
 
 gem 'json'
-gem 'sinatra'
 gem 'faker'
 
 group :development, :test do
