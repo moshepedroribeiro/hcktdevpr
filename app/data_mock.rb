@@ -11,7 +11,7 @@ before do
   headers 'Access-Control-Allow-Origin' => '*'
 end
 
-get '/mock_data/reactors/:id/reactor_logs' do |reactor_id|
+get '/mock_data/cultures/:id/culture_logs' do |reactor_id|
 	JSON.generate(
 		{
 			id: Faker::Number.unique.number(digits: 5),
