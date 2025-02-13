@@ -37,6 +37,10 @@ gem 'telegram-bot-ruby', '~> 2.1'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+gem 'json'
+gem 'sinatra'
+gem 'faker'
+
 group :development, :test do
   gem 'capybara'
   gem 'capybara-lockstep'
