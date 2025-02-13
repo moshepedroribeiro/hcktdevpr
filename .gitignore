@@ -35,3 +35,6 @@
 /config/master.key
 /app/assets/builds/application.js
 /app/assets/builds/application.css
+/node_modules
+
+*.iml
