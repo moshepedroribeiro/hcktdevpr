@@ -3,7 +3,6 @@ require 'json'
 require 'faker'
 
 # run ruby data_mock.rb
-# access http://localhost:4567/data_mock/reactors
 
 # Enable CORS if needed
 before do
@@ -11,11 +10,12 @@ before do
   headers 'Access-Control-Allow-Origin' => '*'
 end
 
-get '/mock_data/cultures/:id/culture_logs' do |reactor_id|
+get '/mock_data/cultures/:id/culture_logs' do |culture_id|
 	JSON.generate(
 		{
 			id: Faker::Number.unique.number(digits: 5),
-			reactor_id: reactor_id,
+			culture_id: culture_id,
+			reactor_id: Faker::Number.unique.number(digits: 5),
 			microorganism_id: Faker::Number.unique.number(digits: 5),
 			pressure: Faker::Number.within(range: 0.10..0.50),
 			oxygen: Faker::Number.within(range: 0.00..0.11),
@@ -43,6 +43,18 @@ get '/mock_data/microorganisms/:id/data' do |id|
 			id: id,
 			name: Faker::Creature::Animal.name,
 			code: Faker::Number.unique.number(digits: 5),
+		}
+	)
+end
+
+get '/mock_data/cultures/:id/data' do |id|
+	JSON.generate(
+		{
+			id: id,
+			name: Faker::Creature::Animal.name,
+			code: Faker::Number.unique.number(digits: 5),
+			reactor_id: Faker::Number.unique.number(digits: 5),
+			microorganism_id: Faker::Number.unique.number(digits: 5),
 		}
 	)
 end
