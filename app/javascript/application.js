@@ -1,4 +1,5 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
-import '@popperjs/core';
-import "bootstrap";
+import "bootstrap/dist/js/bootstrap.bundle"
+import '@popperjs/core'
+import "bootstrap"
