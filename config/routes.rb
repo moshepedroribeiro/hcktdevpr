@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :reactors, only: %i[new create]
   resources :microorganisms, only: %i[new create]
   resources :cultures, only: %i[new create]
+  resources :image_repositories, only: %i[index]
 
   post '/telegram/message_chat', to: 'telegram#message_chat'
 
