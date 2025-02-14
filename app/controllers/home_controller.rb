@@ -12,6 +12,8 @@ class HomeController < ApplicationController
     @culture_logs_temperature = @culture_logs.pluck(:temperature)
 
     @culture_logs_times = @culture_logs.map { |culture_log| culture_log.updated_at.strftime('%H:%M:%S') }
+
+    @culture_logs_concentrations = @culture_logs.pluck(:concentration)
   end
 end
 

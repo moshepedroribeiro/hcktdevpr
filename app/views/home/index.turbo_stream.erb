@@ -110,5 +110,13 @@
     </div>
 
     <h3 class="text-center mt-3">Análise da bactéria <i><%= 'Bacillus' %></i></h3>
+
+    <div class="w-100" data-controller="chart">
+      <input type="hidden" data-chart-target="time" value="<%= @culture_logs_times %>">
+      <input type="hidden" data-chart-target="temperature" value="<%= @culture_logs_temperature %>">
+      <input type="hidden" data-chart-target="concentration" value="<%= @culture_logs_concentrations %>">
+
+      <div data-chart-target="chart"></div>
+    </div>
   </div>
 <% end %>

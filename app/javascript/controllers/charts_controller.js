@@ -2,10 +2,10 @@ import { Controller } from "@hotwired/stimulus"
 import ApexCharts from "apexcharts";
 
 export default class extends Controller {
-    static targets = ["chart", "time", "temperature"];
+    static targets = ["chart", "time", "temperature", "concentration"];
 
     connect() {
-
+        console.log(this.generateChartData());
         this.renderChart();
     }
 
@@ -25,16 +25,12 @@ export default class extends Controller {
             },
             series: [
                 {
-                    name: "Horário",
-                    data: JSON.parse(this.timeTarget.value)
-                },
-                {
                     name: 'Temperatura',
-                    data: JSON.parse(this.temperatureTarget.value)
+                    data: JSON.parse(this.concentrationTarget.value)
                 }
             ],
             xaxis: {
-                categories: JSON.parse(this.temperatureTarget.value),
+                categories: this.generateChartData(),
                 type: 'datetime',
                 tickAmount: 24,
                 labels: {
@@ -58,15 +54,15 @@ export default class extends Controller {
      generateChartData() {
         let data = [];
 
-        data = JSON.parse(this.jsonTarget.value).map((item) => {
-            let hour = item[0].split(":")[0];
-            let minute = item[0].split(":")[1];
-            let second = item[0].split(":")[2];
+        data = JSON.parse(this.timeTarget.value).map((item) => {
+            let hour = parseInt(item.split(":")[0]);
+            let minute = parseInt(item.split(":")[1]);
+            let second = parseInt(item.split(":")[2]);
 
-            return {
-                x: new Date(hour, minute, second, 0),
-                y: item.quantity
-            }
+            let newHour = new Date();
+            let time = newHour.setHours(hour, minute, second, 0);
+
+            return time
         });
 
         return data;
