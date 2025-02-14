@@ -1,34 +1,30 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command.
-
-# Clear existing data
-puts "Cleaning database..."
+puts 'Cleaning database...'
+Reactor.destroy_all
 CultureLog.destroy_all
 Culture.destroy_all
 Microorganism.destroy_all
-Reactor.destroy_all
 
-puts "Creating reactors..."
+puts 'Creating reactors...'
 reactors = [
   {
-    name: "Bioreactor A",
-    code: "BIO-A",
+    name: 'Bioreactor A',
+    code: 'BIO-A',
     active: true
   },
   {
-    name: "Bioreactor B",
-    code: "BIO-B",
+    name: 'Bioreactor B',
+    code: 'BIO-B',
     active: true
   }
 ]
 
 created_reactors = Reactor.create!(reactors)
 
-puts "Creating microorganisms..."
+puts 'Creating microorganisms...'
 microorganisms = [
   {
-    name: "E. coli K-12",
-    code: "ECK12",
+    name: 'E. coli K-12',
+    code: 'ECK12',
     desired_pressure: 3,
     desired_oxygen: 20,
     desired_temperature: 37,
@@ -36,8 +32,8 @@ microorganisms = [
     active: true
   },
   {
-    name: "S. cerevisiae",
-    code: "SC001",
+    name: 'S. cerevisiae',
+    code: 'SC001',
     desired_pressure: 2,
     desired_oxygen: 15,
     desired_temperature: 30,
@@ -48,7 +44,7 @@ microorganisms = [
 
 created_microorganisms = Microorganism.create!(microorganisms)
 
-puts "Creating cultures..."
+puts 'Creating cultures...'
 current_date = Date.new(2025, 1, 15)
 cultures = []
 
@@ -65,7 +61,7 @@ end
 
 created_cultures = Culture.create!(cultures)
 
-puts "Creating culture logs..."
+puts 'Creating culture logs...'
 culture_logs = []
 
 created_cultures.each do |culture|
@@ -89,8 +85,8 @@ end
 
 CultureLog.create!(culture_logs)
 
-puts "Seeding completed!"
-puts "Created:"
+puts 'Seeding completed!'
+puts 'Created:'
 puts "  - #{Reactor.count} reactors"
 puts "  - #{Microorganism.count} microorganisms"
 puts "  - #{Culture.count} cultures"

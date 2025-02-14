@@ -1,3 +1,3 @@
 class Microorganism < ApplicationRecord
-  belongs_to :culture
+  has_many :culture
 end
