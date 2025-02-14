@@ -121,7 +121,7 @@
     </div>
   </div>
 
-  <h3 class="text-center mt-3">Análise da bactéria <i><%= 'Bacillus' %></i></h3>
+  <h3 class="text-center mt-3">Análise da bactéria <i><%= @last_culture_log.culture.microorganism.name %></i></h3>
 
   <div class="w-100" data-controller="chart">
     <input type="hidden" data-chart-target="time" value="<%= @culture_logs_times %>">
