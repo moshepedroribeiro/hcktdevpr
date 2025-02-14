@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -18,4 +20,6 @@ Rails.application.routes.draw do
   resources :image_repositories, only: %i[index]
 
   post '/telegram/message_chat', to: 'telegram#message_chat'
+
+  mount Sidekiq::Web => '/sidekiq'
 end
