@@ -19,8 +19,6 @@ class HomeController < ApplicationController
       @culture_logs_times = []
       @culture_logs_concentrations = []
     end
-
-
   end
 end
 
