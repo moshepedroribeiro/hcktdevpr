@@ -39,7 +39,10 @@ gem 'telegram-bot-ruby', '~> 2.1'
 
 gem 'json'
 gem 'faker'
-gem 'annotate'
+gem 'sidekiq'
+gem 'redis'
+gem 'rufus-scheduler'
+gem 'httparty'
 
 group :development, :test do
   gem 'capybara'
