@@ -23,7 +23,13 @@
               <h5 class="card-title text-center">Contaminantes <span>| Risco</span></h5>
 
               <div class="text-center">
-                <img src="<%= image_path('accept.png') %>" width="50" height="50">
+
+                <% if @last_culture_log.contaminants %>
+                  <img src="<%= image_path('negative.png') %>" width="50" height="50">
+                <% else %>
+                  <img src="<%= image_path('accept.png') %>" width="50" height="50">
+                <% end %>
+
               </div>
             </div>
 
@@ -34,12 +40,11 @@
         <div class="col-xxl-4 col-md-6">
           <div class="card info-card revenue-card">
             <div class="card-body">
-              <h5 class="card-title text-center">População <span>| Bacillus</span></h5>
+              <h5 class="card-title text-center">População <span>| <%= @last_culture_log.culture.microorganism.name %></span></h5>
 
-              <div class="d-flex align-items-center">
+              <div class="d-flex align-items-center justify-content-center">
                 <div class="ps-3">
-                  <h6>3.264</h6>
-                  <span class="text-success small pt-1 fw-bold">8%</span> <!-- ((valorAtual / valorAnterior) * 10 - 1)  -->
+                  <h6 style="font-size: 36px;"><%= @last_culture_log.concentration %></h6>
                 </div>
               </div>
             </div>
@@ -54,17 +59,13 @@
             <div class="card-body">
               <h5 class="card-title text-center">Temperatura <span>| ºC</span></h5>
 
-              <div class="d-flex align-items-center">
+              <div class="d-flex align-items-center justify-content-center">
                 <div class="ps-3">
-                  <h6>25 ºC</h6>
-                  <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
-
+                  <h6 style="font-size: 36px;"><%= @last_culture_log.temperature %> ºC</h6>
                 </div>
               </div>
-
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -75,11 +76,9 @@
             <div class="card-body">
               <h5 class="card-title text-center">Pressão <span>| Bar</span></h5>
 
-              <div class="d-flex align-items-center">
+              <div class="d-flex align-items-center justify-content-center">
                 <div class="ps-3">
-                  <h6>145 KPa</h6>
-                  <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
+                  <h6 style="font-size: 36px;"><%= @last_culture_log.pressure %> KPa</h6>
                 </div>
               </div>
             </div>
@@ -92,11 +91,9 @@
             <div class="card-body">
               <h5 class="card-title text-center">Oxigênio <span>| L</span></h5>
 
-              <div class="d-flex align-items-center">
+              <div class="d-flex align-items-center justify-content-center">
                 <div class="ps-3">
-                  <h6>266 qO2</h6>
-                  <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
+                  <h6 style="font-size: 36px;"><%= @last_culture_log.oxygen %> qO2</h6>
                 </div>
               </div>
             </div>
@@ -110,11 +107,9 @@
             <div class="card-body">
               <h5 class="card-title text-center">pH</h5>
 
-              <div class="d-flex align-items-center">
+              <div class="d-flex align-items-center justify-content-center">
                 <div class="ps-3">
-                  <h6>1244 pH</h6>
-                  <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
-
+                  <h6 style="font-size: 36px;"><%= @last_culture_log.ph %> pH</h6>
                 </div>
               </div>
 
