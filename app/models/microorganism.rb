@@ -1,0 +1,2 @@
+class Microorganism < ApplicationRecord
+end
