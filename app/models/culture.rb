@@ -1,4 +1,5 @@
 class Culture < ApplicationRecord
-  has_many :reactors
-  has_many :microorganisms
+  belongs_to :reactor
+  belongs_to :microorganism
+  has_many :culture_logs
 end

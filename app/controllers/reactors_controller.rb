@@ -4,7 +4,8 @@ class ReactorsController < ApplicationController
   end
 
   def create
-    Reactor.create!(name: params[:name], code: params[:code])
+    reactor = Reactor.create!(name: params[:name], code: params[:code])
+    Culture.create!(reactor:, microorganism: nil, culture_end_date: Time.current)
 
     redirect_to action: :new
   end

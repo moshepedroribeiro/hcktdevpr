@@ -1,134 +1,14 @@
 <div class="mt-2">
-  <div class="dropdown">
-    <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown">
-      Reator
-    </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Reator 1</a></li>
-      <li><a class="dropdown-item" href="#">Reator 2</a></li>
-      <li><a class="dropdown-item" href="#">Reator 3</a></li>
-    </ul>
-  </div>
+  <%= form_with(url: home_index_path, method: :get, data: { turbo_stream: true, controller: 'auto-submit' }, class: 'col-4') do |f| %>
+    <%= f.select :reactor,
+                 options_for_select(@reactors.collect { |reactor| [ reactor.name, reactor.id ] },params[:reactor]),
+                 {},
+                 class: 'form-select',
+                 data: { action: 'auto-submit#submit' }
+    %>
+  <% end %>
 </div>
 
-<div class="mt-3">
-  <div class="row">
-    <div class="col-12">
-      <div class="row">
-
-        <!-- Sales Card -->
-        <div class="col-xxl-4 col-md-6">
-          <div class="card info-card sales-card">
-            <div class="card-body">
-              <h5 class="card-title text-center">Contaminantes <span>| Risco</span></h5>
-
-              <div class="text-center">
-                <img src="<%= image_path('accept.png') %>" width="50" height="50">
-              </div>
-            </div>
-
-          </div>
-        </div><!-- End Sales Card -->
-
-        <!-- Revenue Card -->
-        <div class="col-xxl-4 col-md-6">
-          <div class="card info-card revenue-card">
-            <div class="card-body">
-              <h5 class="card-title text-center">População <span>| Bacillus</span></h5>
-
-              <div class="d-flex align-items-center">
-                <div class="ps-3">
-                  <h6>3.264</h6>
-                  <span class="text-success small pt-1 fw-bold">8%</span> <!-- ((valorAtual / valorAnterior) * 10 - 1)  -->
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div><!-- End Revenue Card -->
-
-        <!-- Customers Card -->
-        <div class="col-xxl-4 col-xl-12">
-
-          <div class="card info-card customers-card">
-            <div class="card-body">
-              <h5 class="card-title text-center">Temperatura <span>| ºC</span></h5>
-
-              <div class="d-flex align-items-center">
-                <div class="ps-3">
-                  <h6>25 ºC</h6>
-                  <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
-
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <div class="col-12">
-      <div class="row">
-        <div class="col-xxl-4 col-md-6">
-          <div class="card info-card sales-card">
-            <div class="card-body">
-              <h5 class="card-title text-center">Pressão <span>| Bar</span></h5>
-
-              <div class="d-flex align-items-center">
-                <div class="ps-3">
-                  <h6>145 KPa</h6>
-                  <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="col-xxl-4 col-md-6">
-          <div class="card info-card revenue-card">
-            <div class="card-body">
-              <h5 class="card-title text-center">Oxigênio <span>| L</span></h5>
-
-              <div class="d-flex align-items-center">
-                <div class="ps-3">
-                  <h6>266 qO2</h6>
-                  <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="col-xxl-4 col-xl-12">
-
-          <div class="card info-card customers-card">
-            <div class="card-body">
-              <h5 class="card-title text-center">pH</h5>
-
-              <div class="d-flex align-items-center">
-                <div class="ps-3">
-                  <h6>1244 pH</h6>
-                  <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
-
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<h3 class="text-center mt-3">Análise da bactéria <i><%= 'Bacillus' %></i></h3>
-
-<div class="w-100" data-controller="chart">
-  <div data-chart-target="chart"></div>
+<div id="home-screen">
+  <%= render 'home_screen' %>
 </div>
