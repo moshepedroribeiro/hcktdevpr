@@ -1,0 +1,2 @@
+class CultureLog < ApplicationRecord
+end
