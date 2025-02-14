@@ -13,7 +13,5 @@ Rails.application.routes.draw do
 
   resources :reactors, only: %i[new create]
   resources :microorganisms, only: %i[new create]
-
-  # Defines the root path route ("/")
-  # root "posts#index"
+  resources :cultures, only: %i[new create]
 end
