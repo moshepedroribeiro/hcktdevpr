@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_02_13_215830) do
+ActiveRecord::Schema[7.2].define(version: 2025_02_14_013451) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "culture_logs", force: :cascade do |t|
-    t.bigint "pressure", null: false
-    t.bigint "oxygen", null: false
-    t.bigint "temperature", null: false
-    t.bigint "ph", null: false
-    t.bigint "concentration", null: false
+    t.float "pressure", null: false
+    t.float "oxygen", null: false
+    t.float "temperature", null: false
+    t.float "ph", null: false
+    t.float "concentration", null: false
     t.boolean "contaminants", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
