@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     culture = Culture.find(params[:reactor])
     @culture_logs = culture.culture_logs.order(created_at: :desc).limit(24)
 
-    @last_culture_log = p @culture_logs.last
+    @last_culture_log = @culture_logs.last
 
     @culture_logs_temperature = @culture_logs.pluck(:temperature)
 
